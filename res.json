@@ -1,0 +1,1755 @@
+{
+    "user_id": "1",
+    "start_date": "2025-09-01",
+    "end_date": "2025-11-01",
+    "transactions": [
+        {
+            "date": "2025-10-18",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1150",
+            "transaction_id": "2",
+            "details": "HP COFFEE",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-18",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "110",
+            "transaction_id": "3",
+            "details": "Avtobys. Оплата проезда по QR",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-17",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "110",
+            "transaction_id": "4",
+            "details": "Avtobys. Пригород. Оплата проезда по QR",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-17",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2990",
+            "transaction_id": "5",
+            "details": "Атеа Кабанбай батыра",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-17",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1775",
+            "transaction_id": "6",
+            "details": "Green Food",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-17",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "690",
+            "transaction_id": "7",
+            "details": "Əділет Б.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-17",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1890",
+            "transaction_id": "8",
+            "details": "Назарбаевский",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-17",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1090",
+            "transaction_id": "9",
+            "details": "Əділет Б.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-17",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2970",
+            "transaction_id": "10",
+            "details": "Назарбаевский",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-17",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "110",
+            "transaction_id": "11",
+            "details": "Avtobys. Оплата проезда по QR",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-17",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1000",
+            "transaction_id": "12",
+            "details": "Əлібек Ө.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-17",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "500",
+            "transaction_id": "13",
+            "details": "Əлібек Ө.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-16",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2100",
+            "transaction_id": "14",
+            "details": "Too Naubay",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-16",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "500",
+            "transaction_id": "15",
+            "details": "Жумагелди Б.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-16",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1500",
+            "transaction_id": "16",
+            "details": "Жумагелди Б.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-16",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "500",
+            "transaction_id": "17",
+            "details": "Айша А.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-16",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "18",
+            "details": "AGK",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-16",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "30000",
+            "transaction_id": "19",
+            "details": "Назгуль Н.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-15",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1000",
+            "transaction_id": "20",
+            "details": "ONAY.KZ",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-15",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "720",
+            "transaction_id": "21",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-15",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "22",
+            "details": "BYUN",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-14",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1090",
+            "transaction_id": "23",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-14",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "810",
+            "transaction_id": "24",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "760",
+            "transaction_id": "25",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1000",
+            "transaction_id": "26",
+            "details": "ONAY.KZ",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "27",
+            "details": "Саид А.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "540",
+            "transaction_id": "28",
+            "details": "ac time",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "12650",
+            "transaction_id": "29",
+            "details": "Bahandi АДК",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "5000",
+            "transaction_id": "30",
+            "details": "Сырым Қ.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "4000",
+            "transaction_id": "31",
+            "details": "Манас Қ.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "30000",
+            "transaction_id": "32",
+            "details": "Назгуль Н.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "800",
+            "transaction_id": "33",
+            "details": "Бексұлтан Н.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1580",
+            "transaction_id": "34",
+            "details": "GOOGLE *YouTubePremium",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-11",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "60000",
+            "transaction_id": "35",
+            "details": "На Kaspi Депозит",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-11",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "550",
+            "transaction_id": "36",
+            "details": "ТОО Ас Тайм",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-11",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "300",
+            "transaction_id": "37",
+            "details": "ТОО Ас Тайм",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-11",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "540",
+            "transaction_id": "38",
+            "details": "ТОО Ас Тайм",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-11",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "39",
+            "details": "Гулсимай И.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-11",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "735",
+            "transaction_id": "40",
+            "details": "Alma minimarket",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-10",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "5285",
+            "transaction_id": "41",
+            "details": "Alma minimarket",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-10",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "5000",
+            "transaction_id": "42",
+            "details": "Ернар А.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-10",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "500",
+            "transaction_id": "43",
+            "details": "Айсара Н.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-10",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "500",
+            "transaction_id": "44",
+            "details": "Айсара Н.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-09",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "410",
+            "transaction_id": "45",
+            "details": "ac time",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-09",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "30000",
+            "transaction_id": "46",
+            "details": "Назгуль Н.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-09",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "720",
+            "transaction_id": "47",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-09",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1650",
+            "transaction_id": "48",
+            "details": "APPLE.COM/BILL",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-08",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1975",
+            "transaction_id": "49",
+            "details": "FREEDOM TRAVEL",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-08",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "56000",
+            "transaction_id": "50",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-08",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "58897",
+            "transaction_id": "51",
+            "details": "FREEDOM TRAVEL",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-08",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "52",
+            "details": "Айсара Н.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-08",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1200",
+            "transaction_id": "53",
+            "details": "Дильназ С.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-08",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "440",
+            "transaction_id": "54",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-08",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "55",
+            "details": "OAA",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-07",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2100",
+            "transaction_id": "56",
+            "details": "Too Naubay",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-07",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "930",
+            "transaction_id": "57",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-06",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "58",
+            "details": "Мурат Е.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-06",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1000",
+            "transaction_id": "59",
+            "details": "ONAY.KZ",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-06",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2100",
+            "transaction_id": "60",
+            "details": "Too Naubay",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-06",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "720",
+            "transaction_id": "61",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-05",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1200",
+            "transaction_id": "62",
+            "details": "ONAY. Пополнение баланса",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1000",
+            "transaction_id": "63",
+            "details": "Манас Қ.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "20000",
+            "transaction_id": "64",
+            "details": "Назгуль Н.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "9000",
+            "transaction_id": "65",
+            "details": "Tastak",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "10000",
+            "transaction_id": "66",
+            "details": "Снятие      Банкомат Basket Market",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "15900",
+            "transaction_id": "67",
+            "details": "Айдын Ж.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "3000",
+            "transaction_id": "68",
+            "details": "Сырым Қ.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "16500",
+            "transaction_id": "69",
+            "details": "Chaplin Mega Alma-Ata",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2000",
+            "transaction_id": "70",
+            "details": "Сырым Қ.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "4000",
+            "transaction_id": "71",
+            "details": "Марат Б.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-03",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "4200",
+            "transaction_id": "72",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-03",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1400",
+            "transaction_id": "73",
+            "details": "Бауыржан Н.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-03",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200000",
+            "transaction_id": "74",
+            "details": "Зарплата",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-02",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "720",
+            "transaction_id": "75",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-02",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "990",
+            "transaction_id": "76",
+            "details": "APPLE.COM/BILL",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-02",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "11000",
+            "transaction_id": "77",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-02",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "400",
+            "transaction_id": "78",
+            "details": "ONAY.KZ",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-02",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "3000",
+            "transaction_id": "79",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-10-02",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "700",
+            "transaction_id": "80",
+            "details": "На Kaspi Депозит",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-02",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1400",
+            "transaction_id": "81",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-02",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "40000",
+            "transaction_id": "82",
+            "details": "Снятие      Банкомат Basket Market",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-01",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1500",
+            "transaction_id": "83",
+            "details": "ONAY. Пополнение баланса",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-10-01",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "3500",
+            "transaction_id": "84",
+            "details": "Kcell",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-30",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "7000",
+            "transaction_id": "85",
+            "details": "Марат Б.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-30",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "14000",
+            "transaction_id": "86",
+            "details": "Жігер Д.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-30",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1450",
+            "transaction_id": "87",
+            "details": "Бауыржан Н.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-30",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2900",
+            "transaction_id": "88",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-29",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2100",
+            "transaction_id": "89",
+            "details": "Too Naubay",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-29",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "90",
+            "details": "Аманжол К.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-28",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "9400",
+            "transaction_id": "91",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-28",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "475",
+            "transaction_id": "92",
+            "details": "Alma minimarket",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-27",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "3410",
+            "transaction_id": "93",
+            "details": "Амлет М.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-26",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "300",
+            "transaction_id": "94",
+            "details": "Ип Қалдыбаева",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-26",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1300",
+            "transaction_id": "95",
+            "details": "Khaldan K.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-26",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "100",
+            "transaction_id": "96",
+            "details": "Садака в мечети",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-26",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "15000",
+            "transaction_id": "97",
+            "details": "В Kaspi Банкомате",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-25",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "550",
+            "transaction_id": "98",
+            "details": "ТОО Ас Тайм",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-25",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2100",
+            "transaction_id": "99",
+            "details": "Too Naubay",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-25",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "100",
+            "details": "BYUN",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-25",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1000",
+            "transaction_id": "101",
+            "details": "ONAY.KZ",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-24",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2560",
+            "transaction_id": "102",
+            "details": "Too Naubay",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-24",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "30000",
+            "transaction_id": "103",
+            "details": "Эльмира М.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-23",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "100",
+            "transaction_id": "104",
+            "details": "Khaldan K.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-23",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "390",
+            "transaction_id": "105",
+            "details": "Алмас",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-23",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "315",
+            "transaction_id": "106",
+            "details": "Khaldan K.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-23",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1200",
+            "transaction_id": "107",
+            "details": "ТОО Жануя Жумабек мед",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-22",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1000",
+            "transaction_id": "108",
+            "details": "Марат Б.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-21",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2800",
+            "transaction_id": "109",
+            "details": "Жігер Д.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-21",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2000",
+            "transaction_id": "110",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-21",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "5600",
+            "transaction_id": "111",
+            "details": "Жігер Д.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-21",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "3000",
+            "transaction_id": "112",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-21",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "4000",
+            "transaction_id": "113",
+            "details": "Barbershop MANHETTEN",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-21",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "10000",
+            "transaction_id": "114",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-21",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "5600",
+            "transaction_id": "115",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-21",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "5600",
+            "transaction_id": "116",
+            "details": "Сырым Қ.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-21",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "250",
+            "transaction_id": "117",
+            "details": "Жігер Д.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-21",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "249",
+            "transaction_id": "118",
+            "details": "SMALL",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-21",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "7600",
+            "transaction_id": "119",
+            "details": "Жігер Д.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-21",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "3696",
+            "transaction_id": "120",
+            "details": "С карты другого банка",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-20",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "80000",
+            "transaction_id": "121",
+            "details": "Снятие      Банкомат Meal Mart",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-20",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "100",
+            "transaction_id": "122",
+            "details": "Садака в мечети",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-20",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1000",
+            "transaction_id": "123",
+            "details": "ONAY.KZ",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-20",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "30000",
+            "transaction_id": "124",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-20",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "25981",
+            "transaction_id": "125",
+            "details": "Outfit ТРК Grand Park",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-20",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "4750",
+            "transaction_id": "126",
+            "details": "SALAM BRO",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-20",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2375",
+            "transaction_id": "127",
+            "details": "Бауыржан Н.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-19",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1000",
+            "transaction_id": "128",
+            "details": "supermarket",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-19",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "7242",
+            "transaction_id": "129",
+            "details": "ТОО Kaspi Travel",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-19",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "10465",
+            "transaction_id": "130",
+            "details": "ТОО Kaspi Travel",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-19",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "100000",
+            "transaction_id": "131",
+            "details": "Ербол Е.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-19",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "132",
+            "details": "711ADR05",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-18",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "525",
+            "transaction_id": "133",
+            "details": "ac time",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-18",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "800",
+            "transaction_id": "134",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-18",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "540",
+            "transaction_id": "135",
+            "details": "ac time",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-18",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "3500",
+            "transaction_id": "136",
+            "details": "Бауыржан Н.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-17",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2600",
+            "transaction_id": "137",
+            "details": "Айсара Н.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-17",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1700",
+            "transaction_id": "138",
+            "details": "Əділет Б.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-16",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "10000",
+            "transaction_id": "139",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-16",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1000",
+            "transaction_id": "140",
+            "details": "Айдана Б.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-16",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "141",
+            "details": "ОНА",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-16",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1000",
+            "transaction_id": "142",
+            "details": "ONAY.KZ",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-16",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1690",
+            "transaction_id": "143",
+            "details": "Брусиловского 191а",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-15",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "40000",
+            "transaction_id": "144",
+            "details": "Снятие      Банкомат Meal Mart",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-15",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1690",
+            "transaction_id": "145",
+            "details": "Брусиловского 191а",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-15",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "10000",
+            "transaction_id": "146",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-15",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "30000",
+            "transaction_id": "147",
+            "details": "Назгуль Н.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-15",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "30000",
+            "transaction_id": "148",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2600",
+            "transaction_id": "149",
+            "details": "Сырым Қ.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "15500",
+            "transaction_id": "150",
+            "details": "Umma sport",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "20000",
+            "transaction_id": "151",
+            "details": "С Kaspi Депозита",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "48053.67",
+            "transaction_id": "152",
+            "details": "АЛСЕКО - квитанции за квартиру",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "11498.98",
+            "transaction_id": "153",
+            "details": "YURTA DOM. Квитанции",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "820",
+            "transaction_id": "154",
+            "details": "Дина",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "100",
+            "transaction_id": "155",
+            "details": "Сырым Қ.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "500",
+            "transaction_id": "156",
+            "details": "Хайрулла К.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2550",
+            "transaction_id": "157",
+            "details": "Сырым Қ.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-13",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "449",
+            "transaction_id": "158",
+            "details": "Magnum Cash&Carry",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "70000",
+            "transaction_id": "159",
+            "details": "На Kaspi Депозит",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1580",
+            "transaction_id": "160",
+            "details": "GOOGLE *YouTubePremium",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "300000",
+            "transaction_id": "161",
+            "details": "В Kaspi Банкомате",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "100000",
+            "transaction_id": "162",
+            "details": "На Kaspi Депозит",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "30000",
+            "transaction_id": "163",
+            "details": "На Kaspi Депозит",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1920",
+            "transaction_id": "164",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-12",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "500",
+            "transaction_id": "165",
+            "details": "Гүлмира Ш.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-11",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "830",
+            "transaction_id": "166",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-11",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "167",
+            "details": "AGK",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-10",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1040",
+            "transaction_id": "168",
+            "details": "Байтерек",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-10",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1000",
+            "transaction_id": "169",
+            "details": "ONAY.KZ",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-10",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "5000",
+            "transaction_id": "170",
+            "details": "Назгуль Н.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-08",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1070",
+            "transaction_id": "171",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-08",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "500",
+            "transaction_id": "172",
+            "details": "ONAY.KZ",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-08",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "173",
+            "details": "MiK",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-08",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "500",
+            "transaction_id": "174",
+            "details": "Гүлмира Ш.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-06",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1050",
+            "transaction_id": "175",
+            "details": "Тасним",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-06",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "364",
+            "transaction_id": "176",
+            "details": "Марат Б.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-06",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "700",
+            "transaction_id": "177",
+            "details": "Марат Б.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-06",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1109",
+            "transaction_id": "178",
+            "details": "SMALL",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-05",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "450",
+            "transaction_id": "179",
+            "details": "Салтанат Т.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-05",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "10000",
+            "transaction_id": "180",
+            "details": "В Kaspi Терминале",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-05",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "181",
+            "details": "Кайрат К.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-05",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1020",
+            "transaction_id": "182",
+            "details": "Ип Footpoint",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-05",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "5000",
+            "transaction_id": "183",
+            "details": "Бақдəулет Ж.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-05",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1500",
+            "transaction_id": "184",
+            "details": "Марат Б.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-05",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1500",
+            "transaction_id": "185",
+            "details": "Бақдəулет Ж.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "500",
+            "transaction_id": "186",
+            "details": "ONAY.KZ",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2100",
+            "transaction_id": "187",
+            "details": "Too Naubay",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2000",
+            "transaction_id": "188",
+            "details": "Назгуль Н.",
+            "type": "Пополнение"
+        },
+        {
+            "date": "2025-09-04",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "189",
+            "details": "SZB",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-03",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "1740",
+            "transaction_id": "190",
+            "details": "Бауыржан Н.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-02",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "200",
+            "transaction_id": "191",
+            "details": "Мурат Е.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-02",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "990",
+            "transaction_id": "192",
+            "details": "APPLE.COM/BILL",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-02",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2100",
+            "transaction_id": "193",
+            "details": "Too Naubay",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-01",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "591",
+            "transaction_id": "194",
+            "details": "Айсара Н.",
+            "type": "Покупка"
+        },
+        {
+            "date": "2025-09-01",
+            "user_id": "1",
+            "currency": "KZT",
+            "amount": "2000",
+            "transaction_id": "195",
+            "details": "Бексұлтан Н.",
+            "type": "Покупка"
+        }
+    ],
+    "count": 194,
+    "status": 1
+}

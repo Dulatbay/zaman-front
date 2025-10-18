@@ -1,0 +1,124 @@
+/* Стили для ReactMarkdown в чате */
+.prose {
+  color: inherit;
+}
+
+.prose h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+.prose h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+.prose h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  color: inherit;
+}
+
+.prose p {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.prose ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin: 0.25rem 0;
+}
+
+.prose strong {
+  font-weight: 700;
+  color: inherit;
+}
+
+.prose em {
+  font-style: italic;
+  color: inherit;
+}
+
+.prose code {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+}
+
+.prose pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 0.5rem 0;
+}
+
+.prose blockquote {
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1rem;
+  margin: 0.5rem 0;
+  font-style: italic;
+  color: inherit;
+}
+
+/* Стили для сообщений пользователя */
+.prose.text-white h1,
+.prose.text-white h2,
+.prose.text-white h3,
+.prose.text-white p,
+.prose.text-white li,
+.prose.text-white strong,
+.prose.text-white em {
+  color: white;
+}
+
+.prose.text-white code {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.prose.text-white pre {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.prose.text-white blockquote {
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Стили для сообщений бота */
+.prose.text-dark h1,
+.prose.text-dark h2,
+.prose.text-dark h3,
+.prose.text-dark p,
+.prose.text-dark li,
+.prose.text-dark strong,
+.prose.text-dark em {
+  color: #1f2937;
+}
+
+.prose.text-dark code {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #1f2937;
+}
+
+.prose.text-dark pre {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.prose.text-dark blockquote {
+  border-left-color: #d1d5db;
+}
