@@ -333,9 +333,35 @@ const ChatPage = () => {
     }, 200)
   }
 
+  // Функция для очистки текста от эмодзи и стикеров
+  const cleanTextForSpeech = (text) => {
+    // Удаляем эмодзи (Unicode диапазоны для эмодзи)
+    let cleaned = text.replace(/[\u{1F600}-\u{1F64F}]|[\u{1F300}-\u{1F5FF}]|[\u{1F680}-\u{1F6FF}]|[\u{1F1E0}-\u{1F1FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '')
+    
+    // Удаляем другие символы эмодзи
+    cleaned = cleaned.replace(/[\u{1F900}-\u{1F9FF}]|[\u{1FA70}-\u{1FAFF}]|[\u{1F018}-\u{1F0F5}]|[\u{1F200}-\u{1F2FF}]/gu, '')
+    
+    // Удаляем markdown разметку
+    cleaned = cleaned.replace(/\*\*(.*?)\*\*/g, '$1') // **bold**
+    cleaned = cleaned.replace(/\*(.*?)\*/g, '$1') // *italic*
+    cleaned = cleaned.replace(/`(.*?)`/g, '$1') // `code`
+    cleaned = cleaned.replace(/#{1,6}\s/g, '') // headers
+    cleaned = cleaned.replace(/\|.*?\|/g, '') // tables
+    cleaned = cleaned.replace(/\[.*?\]\(.*?\)/g, '') // links
+    
+    // Удаляем лишние пробелы и переносы строк
+    cleaned = cleaned.replace(/\s+/g, ' ').trim()
+    
+    return cleaned
+  }
+
   // Функции для text-to-speech
   const speakText = async (text) => {
     if (!speechSettings.enabled) return
+
+    // Очищаем текст от эмодзи и стикеров
+    const cleanedText = cleanTextForSpeech(text)
+    if (!cleanedText.trim()) return // Если после очистки текст пустой, не озвучиваем
 
     try {
       setIsSpeaking(true)
@@ -356,14 +382,14 @@ const ChatPage = () => {
           use_speaker_boost: speechSettings.use_speaker_boost
         }
         
-        await elevenLabsService.speak(text, speechSettings.voice, voiceSettings, speechSettings.speed)
+        await elevenLabsService.speak(cleanedText, speechSettings.voice, voiceSettings, speechSettings.speed)
       } else if (speechSynthesisSupported) {
         // Fallback на браузерный speech synthesis
         if (synthesisRef.current) {
           window.speechSynthesis.cancel()
         }
 
-        const utterance = new SpeechSynthesisUtterance(text)
+        const utterance = new SpeechSynthesisUtterance(cleanedText)
         utterance.lang = 'ru-RU'
         utterance.rate = 1
         utterance.pitch = 1
