@@ -870,7 +870,8 @@ const MainPage = () => {
         {goals.map((goal, index) => {
           const progress = calculateProgress(parseFloat(goal.currentAmount), parseFloat(goal.targetAmount))
           const remaining = parseFloat(goal.targetAmount) - parseFloat(goal.currentAmount)
-          const daysLeft = Math.ceil((new Date(goal.deadline) - new Date()) / (1000 * 60 * 60 * 24))
+          const deadlineDate = new Date(goal.deadline * 1000)
+          const daysLeft = Math.ceil((deadlineDate - new Date()) / (1000 * 60 * 60 * 24))
           const CategoryIcon = getCategoryIcon(goal.category)
           const categoryColor = getCategoryColor(goal.category)
           const categoryGradient = getCategoryGradient(goal.category)
