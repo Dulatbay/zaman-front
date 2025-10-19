@@ -11,6 +11,7 @@ const ChatPage = () => {
   const [messages, setMessages] = useState([])
   const [inputMessage, setInputMessage] = useState('')
   const [isTyping, setIsTyping] = useState(false)
+  const [loadingStep, setLoadingStep] = useState('')
   const [isListening, setIsListening] = useState(false)
   const [speechSupported, setSpeechSupported] = useState(false)
   const [speechError, setSpeechError] = useState('')
@@ -33,6 +34,40 @@ const ChatPage = () => {
   const recognitionRef = useRef(null)
   const synthesisRef = useRef(null)
   const currentAudioRef = useRef(null)
+
+  // Этапы загрузки
+  const loadingSteps = [
+    'Отправляю запрос...',
+    'Подключаюсь к серверу...',
+    'Думаю...',
+    'Анализирую контекст...',
+    'Планирую задачи...',
+    'Собираю информацию...',
+    'Обрабатываю данные...',
+    'Анализирую данные...',
+    'Проверяю источники...',
+    'Валидация...',
+    'Формирую ответ...',
+    'Проверяю качество...',
+    'Оптимизирую результат...',
+    'Проверяю результат...',
+    'Финальная проверка...',
+    'Завершаю обработку...'
+  ]
+
+  // Функция для показа этапов загрузки
+  const showLoadingSteps = () => {
+    let stepIndex = 0
+    const interval = setInterval(() => {
+      if (stepIndex < loadingSteps.length) {
+        setLoadingStep(loadingSteps[stepIndex])
+        stepIndex++
+      } else {
+        clearInterval(interval)
+        setLoadingStep('')
+      }
+    }, 2000) // Каждый этап показывается 1200мс
+  }
 
   // Проверка поддержки Speech Recognition и Speech Synthesis
   useEffect(() => {
@@ -216,6 +251,7 @@ const ChatPage = () => {
     const currentMessage = inputMessage
     setInputMessage('')
     setIsTyping(true)
+    showLoadingSteps()
 
     try {
       // Отправляем сообщение в AI API
@@ -530,14 +566,19 @@ const ChatPage = () => {
           {isTyping && (
             <div className="flex justify-start">
               <div className="flex items-start space-x-3">
-                <div className="w-8 h-8 rounded-full bg-light-green flex items-center justify-center">
-                  <CpuChipIcon className="w-5 h-5 text-white" />
+                <div className="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center">
+                  <span className="text-lg">👩‍💼</span>
                 </div>
-                <div className="bg-light-gray rounded-2xl px-4 py-3">
-                  <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                <div className="bg-gray-100 text-gray-900 rounded-2xl px-4 py-3">
+                  <div className="flex items-center space-x-2">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    </div>
+                    <span className="text-sm font-medium">
+                      {loadingStep || 'AI-sha думает...'}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -560,9 +601,11 @@ const ChatPage = () => {
                   <button
                     key={question}
                     onClick={() => setInputMessage(question)}
-                    className="text-sm bg-white hover:bg-primary hover:text-white text-gray-700 px-3 py-2 rounded-full transition-colors border border-gray-200 hover:border-primary shadow-sm"
+                    className="text-sm bg-white px-3 py-2 rounded-full transition-colors border border-gray-200 hover:border-primary shadow-sm group cursor-pointer"
                   >
-                    {question}
+                    <span className="text-gray-700 transition-colors">
+                      {question}
+                    </span>
                   </button>
                 ))}
               </div>
