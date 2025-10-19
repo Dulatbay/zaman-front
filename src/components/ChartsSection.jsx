@@ -301,11 +301,11 @@ const ChartsSection = ({ goals, badHabits, accountBalance }) => {
   ]
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4 sm:space-y-6 lg:space-y-8">
       {/* Заголовок */}
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-dark mb-2">Financial Analytics</h2>
-        <p className="text-gray-600">Comprehensive analysis of your financial data</p>
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-dark mb-2">Financial Analytics</h2>
+        <p className="text-sm sm:text-base text-gray-600">Comprehensive analysis of your financial data</p>
         {loading && (
           <div className="mt-4 flex items-center justify-center">
             <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
@@ -326,10 +326,10 @@ const ChartsSection = ({ goals, badHabits, accountBalance }) => {
       </div>
 
       {/* Первый ряд - расходы и доходы */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Круговая диаграмма расходов */}
-        <div className="bg-white rounded-2xl p-6 border border-light shadow-lg">
-          <h3 className="text-xl font-bold text-dark mb-4">Expenses by Category</h3>
+        <div className="bg-white rounded-2xl p-4 sm:p-6 border border-light shadow-lg">
+          <h3 className="text-lg sm:text-xl font-bold text-dark mb-3 sm:mb-4">Expenses by Category</h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -367,7 +367,7 @@ const ChartsSection = ({ goals, badHabits, accountBalance }) => {
       </div>
 
       {/* Второй ряд - тренды */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Линейная диаграмма месячных расходов */}
         <div className="bg-white rounded-2xl p-6 border border-light shadow-lg">
           <h3 className="text-xl font-bold text-dark mb-4">Monthly Trends</h3>
@@ -400,7 +400,7 @@ const ChartsSection = ({ goals, badHabits, accountBalance }) => {
       </div>
 
       {/* Третий ряд - цели и привычки */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Прогресс целей */}
         <div className="bg-white rounded-2xl p-6 border border-light shadow-lg">
           <h3 className="text-xl font-bold text-dark mb-4">Goals Progress</h3>
@@ -432,7 +432,7 @@ const ChartsSection = ({ goals, badHabits, accountBalance }) => {
       </div>
 
       {/* Четвертый ряд - сравнения и детали */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Сравнение бюджета и трат */}
         <div className="bg-white rounded-2xl p-6 border border-light shadow-lg">
           <h3 className="text-xl font-bold text-dark mb-4">Budget vs Spending</h3>
@@ -465,7 +465,7 @@ const ChartsSection = ({ goals, badHabits, accountBalance }) => {
       </div>
 
       {/* Пятый ряд - радиальные диаграммы */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Радиальная диаграмма общего прогресса */}
         <div className="bg-white rounded-2xl p-6 border border-light shadow-lg">
           <h3 className="text-xl font-bold text-dark mb-4">Overall Progress</h3>

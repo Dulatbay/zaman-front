@@ -281,22 +281,22 @@ const VoiceChatPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/10 via-white to-light-green/10 flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-primary/10 via-white to-light-green/10 flex items-center justify-center px-2 sm:px-4 py-4 sm:py-8">
       <div className="max-w-2xl w-full">
         {/* Заголовок */}
-        <div className="text-center mb-6 sm:mb-8">
-          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <ChatBubbleLeftRightIcon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+        <div className="text-center mb-4 sm:mb-6 lg:mb-8">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+            <ChatBubbleLeftRightIcon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-white" />
           </div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-dark mb-2">Живой разговор с AI</h1>
-          <p className="text-sm sm:text-base text-gray">Говорите естественно, AI отвечает голосом</p>
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-dark mb-2">Живой разговор с AI</h1>
+          <p className="text-xs sm:text-sm lg:text-base text-gray">Говорите естественно, AI отвечает голосом</p>
         </div>
 
         {/* Основная область */}
-        <div className="bg-white rounded-2xl shadow-xl border border-light p-4 sm:p-8">
+        <div className="bg-white rounded-2xl shadow-xl border border-light p-3 sm:p-6 lg:p-8">
           {/* Сообщение об ошибке */}
           {speechError && (
-            <div className="mb-4 sm:mb-6 bg-red-50 border border-red-200 rounded-xl p-3 sm:p-4">
+            <div className="mb-3 sm:mb-4 lg:mb-6 bg-red-50 border border-red-200 rounded-xl p-2 sm:p-3 lg:p-4">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                 <span className="text-red-700 text-xs sm:text-sm">{speechError}</span>
@@ -305,12 +305,12 @@ const VoiceChatPage = () => {
           )}
 
           {/* Центральная кнопка */}
-          <div className="flex flex-col items-center space-y-4 sm:space-y-6">
+          <div className="flex flex-col items-center space-y-3 sm:space-y-4 lg:space-y-6">
             {/* Главная кнопка разговора */}
             <button
               onClick={isListening ? stopListening : startListening}
               disabled={!speechSupported || isProcessing || isSpeaking}
-              className={`w-24 h-24 sm:w-32 sm:h-32 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl disabled:hover:scale-100 ${
+              className={`w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl disabled:hover:scale-100 ${
                 isListening
                   ? 'bg-red-500 hover:bg-red-600 text-white animate-pulse shadow-red-500/50'
                   : isSpeaking
@@ -330,9 +330,9 @@ const VoiceChatPage = () => {
               }
             >
               {isListening ? (
-                <StopIcon className="w-8 h-8 sm:w-12 sm:h-12 mx-auto" />
+                <StopIcon className="w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 mx-auto" />
               ) : isSpeaking ? (
-                <SpeakerWaveIcon className="w-8 h-8 sm:w-12 sm:h-12 mx-auto" />
+                <SpeakerWaveIcon className="w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 mx-auto" />
               ) : isProcessing ? (
                 <div className="flex space-x-1">
                   <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full animate-bounce"></div>
@@ -347,19 +347,19 @@ const VoiceChatPage = () => {
             {/* Статус */}
             <div className="text-center">
               {isListening ? (
-                <div className="text-red-500 font-medium text-base sm:text-lg animate-pulse">
+                <div className="text-red-500 font-medium text-sm sm:text-base lg:text-lg animate-pulse">
                   🎤 Слушаю вас...
                 </div>
               ) : isSpeaking ? (
-                <div className="text-green-500 font-medium text-base sm:text-lg animate-pulse">
+                <div className="text-green-500 font-medium text-sm sm:text-base lg:text-lg animate-pulse">
                   🔊 AI говорит...
                 </div>
               ) : isProcessing ? (
-                <div className="text-yellow-500 font-medium text-base sm:text-lg animate-pulse">
+                <div className="text-yellow-500 font-medium text-sm sm:text-base lg:text-lg animate-pulse">
                   🤔 AI думает...
                 </div>
               ) : (
-                <div className="text-gray-500 font-medium text-base sm:text-lg">
+                <div className="text-gray-500 font-medium text-sm sm:text-base lg:text-lg">
                   Нажмите кнопку, чтобы начать разговор
                 </div>
               )}
@@ -375,10 +375,10 @@ const VoiceChatPage = () => {
             )}
 
             {/* Кнопки управления */}
-            <div className="flex items-center justify-center space-x-2 sm:space-x-4">
+            <div className="flex items-center justify-center space-x-1.5 sm:space-x-2 lg:space-x-4">
               <button
                 onClick={() => setShowSettings(!showSettings)}
-                className="p-2 sm:p-3 bg-gray-100 text-gray-600 rounded-xl hover:bg-gray-200 transition-colors"
+                className="p-1.5 sm:p-2 lg:p-3 bg-gray-100 text-gray-600 rounded-xl hover:bg-gray-200 transition-colors"
                 title="Настройки голоса"
               >
                 <Cog6ToothIcon className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -387,7 +387,7 @@ const VoiceChatPage = () => {
               {isSpeaking && (
                 <button
                   onClick={stopSpeaking}
-                  className="p-2 sm:p-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors"
+                  className="p-1.5 sm:p-2 lg:p-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors"
                   title="Остановить воспроизведение"
                 >
                   <PauseIcon className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -396,7 +396,7 @@ const VoiceChatPage = () => {
               
               <button
                 onClick={clearHistory}
-                className="p-2 sm:p-3 bg-gray-100 text-gray-600 rounded-xl hover:bg-gray-200 transition-colors"
+                className="p-1.5 sm:p-2 lg:p-3 bg-gray-100 text-gray-600 rounded-xl hover:bg-gray-200 transition-colors"
                 title="Очистить историю"
               >
                 <div className="w-4 h-4 sm:w-5 sm:h-5">🗑️</div>

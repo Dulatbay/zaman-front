@@ -28,6 +28,7 @@ const ChatPage = () => {
     use_speaker_boost: false
   })
   const [showVoiceSettings, setShowVoiceSettings] = useState(false)
+  const [showSettingsMenu, setShowSettingsMenu] = useState(false)
   const messagesEndRef = useRef(null)
   const recognitionRef = useRef(null)
   const synthesisRef = useRef(null)
@@ -159,6 +160,18 @@ const ChatPage = () => {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
+
+  // Закрытие меню настроек при клике вне его
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showSettingsMenu && !event.target.closest('.settings-menu')) {
+        setShowSettingsMenu(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [showSettingsMenu])
 
   // Глобальная клавиша Escape для остановки записи
   useEffect(() => {
@@ -391,94 +404,92 @@ const ChatPage = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="bg-white rounded-xl border border-light h-[600px] flex flex-col shadow-sm">
-        {/* Заголовок чата */}
-        <div className="p-6 border-b border-light">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <CpuChipIcon className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h2 className="text-xl font-bold text-dark">ZAMAN Finance AI</h2>
-                <p className="text-gray text-sm">Ваш персональный финансовый консультант</p>
-              </div>
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      {/* Заголовок */}
+      <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-3">
+        <div className="max-w-4xl mx-auto flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center">
+              <span className="text-lg">👩‍💼</span>
             </div>
-            <div className="flex items-center space-x-4">
-              {/* Кнопки управления speech synthesis */}
-              {(speechSynthesisSupported || elevenLabsSupported) && (
-                <div className="flex items-center space-x-2">
-                  <button
-                    onClick={toggleSpeechSettings}
-                    className={`p-2 rounded-lg transition-colors ${
-                      speechSettings.enabled 
-                        ? 'bg-primary text-white' 
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                    }`}
-                    title={speechSettings.enabled ? "Отключить озвучивание" : "Включить озвучивание"}
-                  >
-                    {speechSettings.enabled ? (
-                      <SpeakerWaveIcon className="w-4 h-4" />
-                    ) : (
-                      <SpeakerXMarkIcon className="w-4 h-4" />
-                    )}
-                  </button>
-                  
-                  <button
-                    onClick={() => setShowVoiceSettings(!showVoiceSettings)}
-                    className="p-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors"
-                    title="Настройки голоса"
-                  >
-                    <Cog6ToothIcon className="w-4 h-4" />
-                  </button>
-                  
-                  {isSpeaking && (
-                    <button
-                      onClick={stopSpeaking}
-                      className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
-                      title="Остановить воспроизведение"
-                    >
-                      <PauseIcon className="w-4 h-4" />
-                    </button>
-                  )}
-                </div>
-              )}
-              
-              <button
-                onClick={clearChat}
-                className="text-gray hover:text-primary transition-colors text-sm"
-              >
-                Очистить чат
-              </button>
+            <div>
+              <h1 className="text-lg font-semibold text-gray-900">AI-sha</h1>
+              <p className="text-xs text-gray-500">Ваш финансовый помощник</p>
             </div>
           </div>
-        </div>
-
-        {/* Область сообщений */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-4">
-          {messages.map((message) => (
-            <div
-              key={message.id}
-              className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
+          
+          {/* Меню настроек */}
+          <div className="relative settings-menu">
+            <button
+              onClick={() => setShowSettingsMenu(!showSettingsMenu)}
+              className="p-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors"
+              title="Настройки"
             >
-              <div className={`flex items-start space-x-3 max-w-[80%] ${message.isUser ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                  message.isUser 
-                    ? 'bg-primary' 
-                    : 'bg-light-green'
-                }`}>
-                  {message.isUser ? (
-                    <UserIcon className="w-5 h-5 text-white" />
-                  ) : (
-                    <CpuChipIcon className="w-5 h-5 text-white" />
-                  )}
-                </div>
-                <div className={`rounded-2xl px-4 py-3 ${
-                  message.isUser
-                    ? 'bg-primary text-white'
-                    : 'bg-light-gray text-dark'
-                }`}>
+              <Cog6ToothIcon className="w-5 h-5" />
+            </button>
+            
+            {/* Выпадающее меню */}
+            {showSettingsMenu && (
+              <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                {(speechSynthesisSupported || elevenLabsSupported) && (
+                  <button
+                    onClick={() => {
+                      setShowVoiceSettings(true)
+                      setShowSettingsMenu(false)
+                    }}
+                    className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
+                  >
+                    <SpeakerWaveIcon className="w-4 h-4" />
+                    <span>Настройки голоса</span>
+                  </button>
+                )}
+                <button
+                  onClick={() => {
+                    clearChat()
+                    setShowSettingsMenu(false)
+                  }}
+                  className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
+                >
+                  <div className="w-4 h-4">🗑️</div>
+                  <span>Очистить чат</span>
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Основная область чата */}
+      <div className="flex-1 flex flex-col max-w-4xl mx-auto w-full">
+        <div className="flex-1 flex flex-col bg-white rounded-t-xl shadow-sm border border-gray-200">
+
+          {/* Область сообщений */}
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-6">
+            {messages.map((message) => (
+              <div
+                key={message.id}
+                className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
+              >
+                <div className={`flex items-start space-x-3 max-w-[85%] sm:max-w-[75%] lg:max-w-[65%] ${message.isUser ? 'flex-row-reverse space-x-reverse' : ''}`}>
+                  {/* Аватар */}
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                    message.isUser 
+                      ? 'bg-primary' 
+                      : 'bg-pink-100'
+                  }`}>
+                    {message.isUser ? (
+                      <UserIcon className="w-5 h-5 text-white" />
+                    ) : (
+                      <span className="text-lg">👩‍💼</span>
+                    )}
+                  </div>
+                  
+                  {/* Сообщение */}
+                  <div className={`rounded-2xl px-4 py-3 ${
+                    message.isUser
+                      ? 'bg-primary text-white'
+                      : 'bg-gray-100 text-gray-900'
+                  }`}>
                   {message.isError ? (
                     <p className="text-sm leading-relaxed">{message.text}</p>
                   ) : (
@@ -536,32 +547,54 @@ const ChatPage = () => {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Форма ввода */}
-        <div className="p-6 border-t border-light">
-          {/* Сообщение об ошибке speech recognition */}
-          {speechError && (
-            <div className="mb-4 bg-red-50 border border-red-200 rounded-xl p-3">
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                <span className="text-red-700 text-sm">{speechError}</span>
+          {/* Быстрые вопросы - только если чат пустой */}
+          {messages.length === 0 && (
+            <div className="px-4 sm:px-6 py-3 bg-gray-50 border-t border-gray-200">
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Составь отчет на этот месяц",
+                  "Хочу накопить на что-то", 
+                  "Оплати текущий ежемесячный платеж",
+                  "Дай рекомендацию по моим финансовым целям"
+                ].map((question) => (
+                  <button
+                    key={question}
+                    onClick={() => setInputMessage(question)}
+                    className="text-sm bg-white hover:bg-primary hover:text-white text-gray-700 px-3 py-2 rounded-full transition-colors border border-gray-200 hover:border-primary shadow-sm"
+                  >
+                    {question}
+                  </button>
+                ))}
               </div>
             </div>
           )}
 
-          <form onSubmit={handleSendMessage} className="flex space-x-4">
-            <div className="flex-1 relative">
-              <input
-                type="text"
-                value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                placeholder={isListening ? "Слушаю..." : "Задайте вопрос о финансах..."}
-                className={`w-full px-4 py-3 bg-white border rounded-xl text-dark placeholder-gray focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200 ${
-                  isListening 
-                    ? 'border-primary ring-2 ring-primary/20 bg-primary/5' 
-                    : 'border-light'
-                }`}
-                disabled={isTyping}
-              />
+          {/* Форма ввода */}
+          <div className="p-4 sm:p-6 bg-white border-t border-gray-200">
+            {/* Сообщение об ошибке speech recognition */}
+            {speechError && (
+              <div className="mb-4 bg-red-50 border border-red-200 rounded-xl p-3">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <span className="text-red-700 text-sm">{speechError}</span>
+                </div>
+              </div>
+            )}
+
+            <form onSubmit={handleSendMessage} className="flex space-x-3">
+              <div className="flex-1 relative">
+                <input
+                  type="text"
+                  value={inputMessage}
+                  onChange={(e) => setInputMessage(e.target.value)}
+                  placeholder={isListening ? "Слушаю..." : "Задайте вопрос о финансах..."}
+                  className={`w-full px-4 py-3 pr-12 bg-white border rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors ${
+                    isListening 
+                      ? 'border-primary ring-2 ring-primary/20 bg-primary/5'
+                      : 'border-gray-300 hover:border-gray-400'
+                  }`}
+                  disabled={isTyping}
+                />
               
               {/* Индикатор записи */}
               {isListening && (
@@ -574,106 +607,47 @@ const ChatPage = () => {
               )}
             </div>
             
-            {/* Кнопка голосового ввода */}
-            {speechSupported && (
-              <div className="flex flex-col space-y-2">
-                <button
-                  type="button"
-                  onClick={isListening ? stopListening : startListening}
-                  disabled={isTyping}
-                  className={`px-4 py-3 rounded-xl font-bold transition-all duration-200 transform hover:scale-105 shadow-sm disabled:hover:scale-100 ${
-                    isListening
-                      ? 'bg-red-500 hover:bg-red-600 text-white animate-pulse'
-                      : 'bg-gray-100 hover:bg-gray-200 text-gray-600 disabled:bg-gray-50 disabled:text-gray-400'
-                  }`}
-                  title={isListening ? "Остановить запись" : "Начать голосовой ввод"}
-                >
-                  {isListening ? (
-                    <StopIcon className="w-5 h-5" />
-                  ) : (
-                    <MicrophoneIcon className="w-5 h-5" />
-                  )}
-                </button>
-                
-                {/* Кнопка принудительного сброса */}
-                {isListening && (
+              <div className="flex items-center space-x-2">
+                {/* Кнопка микрофона */}
+                {speechSupported && (
                   <button
                     type="button"
-                    onClick={() => {
-                      console.log('🚨 FORCE RESET BUTTON CLICKED')
-                      setIsListening(false)
-                      setSpeechError('')
-                      if (recognitionRef.current) {
-                        recognitionRef.current = null
-                      }
-                    }}
-                    className="px-2 py-1 text-xs bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
-                    title="Принудительно остановить"
+                    onClick={isListening ? stopListening : startListening}
+                    disabled={isTyping}
+                    className={`p-3 rounded-lg transition-colors ${
+                      isListening
+                        ? 'bg-red-500 hover:bg-red-600 text-white'
+                        : 'bg-gray-100 hover:bg-gray-200 text-gray-600 disabled:bg-gray-50 disabled:text-gray-400'
+                    }`}
+                    title={isListening ? "Остановить запись" : "Начать голосовой ввод"}
                   >
-                    Сброс
+                    {isListening ? (
+                      <StopIcon className="w-5 h-5" />
+                    ) : (
+                      <MicrophoneIcon className="w-5 h-5" />
+                    )}
                   </button>
                 )}
+                
+                
+                {/* Кнопка отправки */}
+                <button
+                  type="submit"
+                  disabled={!inputMessage.trim() || isTyping}
+                  className="bg-primary hover:bg-dark-green disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold p-3 rounded-lg transition-colors"
+                >
+                  <PaperAirplaneIcon className="w-5 h-5" />
+                </button>
               </div>
-            )}
-            
-            {/* Кнопка отправки */}
-            <button
-              type="submit"
-              disabled={!inputMessage.trim() || isTyping}
-              className="bg-primary hover:bg-dark-green disabled:bg-gray disabled:cursor-not-allowed text-white font-bold py-3 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-sm disabled:hover:scale-100"
-            >
-              <PaperAirplaneIcon className="w-5 h-5" />
-            </button>
           </form>
-          
-          {/* Быстрые вопросы */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {[
-              "Составь отчет на этот месяц",
-              "Хочу накопить на что-то",
-              "Оплати текущий ежемесячный платеж",
-              "Дай рекомендацию по моим финансовым целям"
-            ].map((question) => (
-              <button
-                key={question}
-                onClick={() => setInputMessage(question)}
-                className="text-xs bg-light-gray hover:bg-primary hover:text-white text-dark px-3 py-1 rounded-full transition-colors duration-200 border border-light"
-              >
-                {question}
-              </button>
-            ))}
-            
-            {/* Информация о голосовых функциях */}
-            <div className="flex items-center space-x-4 text-xs text-gray-500">
-              {speechSupported && (
-                <div className="flex items-center space-x-1">
-                  <MicrophoneIcon className="w-3 h-3" />
-                  <span>Голосовой ввод</span>
-                </div>
-              )}
-              {(speechSynthesisSupported || elevenLabsSupported) && (
-                <div className="flex items-center space-x-1">
-                  <SpeakerWaveIcon className="w-3 h-3" />
-                  <span>
-                    {speechSettings.provider === 'elevenlabs' ? 'ElevenLabs' : 'Озвучивание'}
-                  </span>
-                </div>
-              )}
-              {isSpeaking && (
-                <div className="flex items-center space-x-1 text-primary">
-                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                  <span>Воспроизводится...</span>
-                </div>
-              )}
-            </div>
-          </div>
         </div>
       </div>
+    </div>
 
       {/* Модальное окно настроек голоса */}
       {showVoiceSettings && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl p-6 w-full max-w-md border border-light shadow-xl">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl p-6 w-full max-w-md border border-gray-200 shadow-xl">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-bold text-dark">Настройки голоса</h2>
               <button
