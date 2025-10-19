@@ -706,7 +706,10 @@ const MainPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
           <div className="bg-white rounded-xl p-6 border border-light shadow-sm">
             <h3 className="text-lg font-semibold text-dark mb-2">Account Balance</h3>
-            <p className="text-3xl font-bold text-primary">{accountBalance.toLocaleString()} ₸</p>
+            <div className="flex items-baseline flex-wrap">
+              <span className="text-2xl font-bold text-primary">{accountBalance.toLocaleString()}</span>
+              <span className="text-xl font-bold text-primary ml-1">&#8376;</span>
+            </div>
           </div>
           <div className="bg-white rounded-xl p-6 border border-light shadow-sm">
             <h3 className="text-lg font-semibold text-dark mb-2">Total Goals</h3>
@@ -723,9 +726,12 @@ const MainPage = () => {
           </div>
           <div className="bg-white rounded-xl p-6 border border-light shadow-sm">
             <h3 className="text-lg font-semibold text-dark mb-2">Total Target</h3>
-            <p className="text-3xl font-bold text-primary">
-              {goals.reduce((sum, goal) => sum + parseFloat(goal.targetAmount || 0), 0).toLocaleString()} ₸
-            </p>
+            <div className="flex items-baseline flex-wrap">
+              <span className="text-xl font-bold text-primary">
+                {goals.reduce((sum, goal) => sum + parseFloat(goal.targetAmount || 0), 0).toLocaleString()}
+              </span>
+              <span className="text-xl font-bold text-primary ml-1">&#8376;</span>
+            </div>
           </div>
         </div>
       </div>
@@ -772,7 +778,7 @@ const MainPage = () => {
                 />
               </div>
               <div>
-                <label className="block text-dark font-medium mb-2">Target Amount (₸)</label>
+                <label className="block text-dark font-medium mb-2">Target Amount (&#8376;)</label>
                 <input
                   type="number"
                   value={formData.targetAmount}
@@ -783,7 +789,7 @@ const MainPage = () => {
                 />
               </div>
               <div>
-                <label className="block text-dark font-medium mb-2">Current Amount (₸)</label>
+                <label className="block text-dark font-medium mb-2">Current Amount (&#8376;)</label>
                 <input
                   type="number"
                   value={formData.currentAmount}
@@ -818,7 +824,7 @@ const MainPage = () => {
                 </select>
               </div>
               <div>
-                <label className="block text-dark font-medium mb-2">Monthly Cost (₸)</label>
+                <label className="block text-dark font-medium mb-2">Monthly Cost (&#8376;)</label>
                 <input
                   type="number"
                   value={formData.monthlyCost}
@@ -860,7 +866,7 @@ const MainPage = () => {
 
       {/* Список целей */}
       {!showCharts && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="space-y-6">
         {goals.map((goal, index) => {
           const progress = calculateProgress(parseFloat(goal.currentAmount), parseFloat(goal.targetAmount))
           const remaining = parseFloat(goal.targetAmount) - parseFloat(goal.currentAmount)
@@ -871,122 +877,155 @@ const MainPage = () => {
           
           return (
             <div key={goal.id} className={`relative overflow-hidden bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 shadow-sm animate-slide-in-up group`}>
-              {/* Header with icon and actions */}
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-center space-x-3">
-                  <div className={`relative p-2 rounded-lg ${categoryColor} border`}>
-                    <CategoryIcon className="w-4 h-4" />
-                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full border border-white"></div>
+              {/* Header section */}
+              <div className="flex flex-col lg:flex-row lg:items-start justify-between mb-4 gap-4">
+                <div className="flex items-start space-x-4 min-w-0 flex-1">
+                  <div className={`relative p-3 rounded-xl ${categoryColor} border shadow-sm flex-shrink-0`}>
+                    <CategoryIcon className="w-6 h-6" />
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-dark">{goal.title}</h3>
-                    <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${categoryColor}`}>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-sm font-bold text-dark mb-2 leading-tight break-words hyphens-auto">{goal.title}</h3>
+                    <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${categoryColor}`}>
                       {goal.category.charAt(0).toUpperCase() + goal.category.slice(1)}
                     </div>
                   </div>
                 </div>
-                <div className="flex space-x-2">
+                
+                {/* Action buttons */}
+                <div className="flex flex-col space-y-2 flex-shrink-0">
                   <button
                     onClick={() => handleTopup(goal, index)}
-                    className="bg-primary hover:bg-dark-green text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-105 flex items-center space-x-1"
+                    className="bg-primary hover:bg-dark-green text-white px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-105 flex items-center space-x-1 shadow-sm"
                   >
                     <CurrencyDollarIcon className="w-4 h-4" />
                     <span>Add</span>
                   </button>
-                  <button
-                    onClick={() => handleEdit(goal, index)}
-                    className="p-2 text-gray-500 hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-200"
-                  >
-                    <PencilIcon className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(index)}
-                    className="p-2 text-gray-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all duration-200"
-                  >
-                    <TrashIcon className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Circular Progress */}
-              <div className="flex items-center justify-center mb-4">
-                <div className="relative w-24 h-24">
-                  <svg className="w-24 h-24 transform -rotate-90" viewBox="0 0 120 120">
-                    {/* Background circle */}
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r="50"
-                      stroke="currentColor"
-                      strokeWidth="8"
-                      fill="none"
-                      className="text-gray-200"
-                    />
-                    {/* Progress circle */}
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r="50"
-                      stroke="currentColor"
-                      strokeWidth="8"
-                      fill="none"
-                      strokeDasharray={`${2 * Math.PI * 50}`}
-                      strokeDashoffset={`${2 * Math.PI * 50 * (1 - progress / 100)}`}
-                      className={`${progress === 100 ? 'text-green-500' : 'text-primary'} transition-all duration-1000 ease-out`}
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className={`text-xl font-bold ${progress === 100 ? 'text-green-500' : 'text-primary'}`}>{progress.toFixed(0)}%</div>
-                      <div className="text-xs text-gray-500">Complete</div>
-                    </div>
+                  <div className="flex space-x-1">
+                    <button
+                      onClick={() => handleEdit(goal, index)}
+                      className="p-2 text-gray-500 hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-200"
+                    >
+                      <PencilIcon className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => handleDelete(index)}
+                      className="p-2 text-gray-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all duration-200"
+                    >
+                      <TrashIcon className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
               </div>
 
-              {/* Amounts */}
-              <div className="grid grid-cols-2 gap-3 mb-4">
+              {/* Financial metrics grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
                 <div className="text-center p-3 bg-green-50 rounded-lg border border-green-200">
                   <div className="text-sm text-green-600 font-medium mb-1">Current</div>
-                  <div className="text-lg font-bold text-green-700">{parseFloat(goal.currentAmount).toLocaleString()} ₸</div>
+                  <div className="text-lg font-bold text-green-700">{parseFloat(goal.currentAmount).toLocaleString()} &#8376;</div>
                 </div>
                 <div className="text-center p-3 bg-blue-50 rounded-lg border border-blue-200">
                   <div className="text-sm text-blue-600 font-medium mb-1">Target</div>
-                  <div className="text-lg font-bold text-blue-700">{parseFloat(goal.targetAmount).toLocaleString()} ₸</div>
+                  <div className="text-lg font-bold text-blue-700">{parseFloat(goal.targetAmount).toLocaleString()} &#8376;</div>
+                </div>
+                <div className="text-center p-3 bg-orange-50 rounded-lg border border-orange-200">
+                  <div className="text-sm text-orange-600 font-medium mb-1">Remaining</div>
+                  <div className="text-lg font-bold text-orange-700">{remaining.toLocaleString()} &#8376;</div>
+                </div>
+                <div className="text-center p-3 bg-purple-50 rounded-lg border border-purple-200">
+                  <div className="text-sm text-purple-600 font-medium mb-1">Days left</div>
+                  <div className={`text-lg font-bold ${daysLeft < 30 ? 'text-red-500' : daysLeft < 90 ? 'text-yellow-500' : 'text-purple-700'}`}>
+                    {daysLeft > 0 ? daysLeft : 'Overdue'}
+                  </div>
                 </div>
               </div>
 
-              {/* Stats */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between p-2 bg-gray-50 rounded-lg">
-                  <div className="flex items-center space-x-2">
-                    <CurrencyDollarIcon className="w-4 h-4 text-orange-500" />
-                    <span className="text-sm text-gray-600">Remaining</span>
-                  </div>
-                  <span className="font-bold text-dark">{remaining.toLocaleString()} ₸</span>
-                </div>
-                
-                <div className="flex items-center justify-between p-2 bg-gray-50 rounded-lg">
-                  <div className="flex items-center space-x-2">
-                    <ClockIcon className={`w-4 h-4 ${daysLeft < 30 ? 'text-red-500' : daysLeft < 90 ? 'text-yellow-500' : 'text-primary'}`} />
-                    <span className="text-sm text-gray-600">Days left</span>
-                  </div>
-                  <span className={`font-bold ${daysLeft < 30 ? 'text-red-500' : daysLeft < 90 ? 'text-yellow-500' : 'text-primary'}`}>
-                    {daysLeft > 0 ? daysLeft : 'Overdue'}
+              {/* Horizontal Progress Bar with Roadmap */}
+              <div className="mb-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-medium text-gray-600">Progress</span>
+                  <span className={`text-sm font-bold ${progress === 100 ? 'text-green-500' : 'text-primary'}`}>
+                    {progress.toFixed(1)}%
                   </span>
                 </div>
+                
+                {/* Progress Bar Container */}
+                <div className="relative">
+                  {/* Background Track */}
+                  <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                    {/* Progress Fill */}
+                    <div 
+                      className={`h-full rounded-full transition-all duration-1500 ease-out ${
+                        progress === 100 
+                          ? 'bg-gradient-to-r from-green-400 to-green-500' 
+                          : 'bg-gradient-to-r from-blue-400 to-blue-500'
+                      }`}
+                      style={{ 
+                        width: `${progress}%`,
+                        boxShadow: progress > 0 ? '0 0 10px rgba(59, 130, 246, 0.3)' : 'none'
+                      }}
+                    />
+                  </div>
+                  
+                  {/* Roadmap Icons */}
+                  <div className="absolute top-0 left-0 w-full h-3 flex items-center justify-between">
+                    {/* Start Icon */}
+                    <div className={`flex items-center justify-center w-6 h-6 rounded-full border-2 ${
+                      progress > 0 ? 'bg-green-500 border-green-500 text-white' : 'bg-white border-gray-300 text-gray-400'
+                    } transition-all duration-500`}>
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    
+                    {/* Milestone Icons */}
+                    {[25, 50, 75].map((milestone, idx) => (
+                      <div key={idx} className={`flex items-center justify-center w-6 h-6 rounded-full border-2 transition-all duration-500 ${
+                        progress >= milestone 
+                          ? 'bg-green-500 border-green-500 text-white' 
+                          : 'bg-white border-gray-300 text-gray-400'
+                      }`}>
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    ))}
+                    
+                    {/* End Icon */}
+                    <div className={`flex items-center justify-center w-6 h-6 rounded-full border-2 ${
+                      progress === 100 
+                        ? 'bg-green-500 border-green-500 text-white' 
+                        : 'bg-white border-gray-300 text-gray-400'
+                    } transition-all duration-500`}>
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Progress Stats */}
+                <div className="flex justify-between items-center mt-3 text-xs text-gray-500">
+                  <span>Start</span>
+                  <span>25%</span>
+                  <span>50%</span>
+                  <span>75%</span>
+                  <span>Goal</span>
+                </div>
+              </div>
 
-                {goal.monthlyCost && parseFloat(goal.monthlyCost) > 0 && (
-                  <div className="flex items-center justify-between p-2 bg-primary/10 rounded-lg">
+              {/* Monthly cost info */}
+              {goal.monthlyCost && parseFloat(goal.monthlyCost) > 0 && (
+                <div className="pt-4 border-t border-gray-100">
+                  <div className="flex items-center justify-between p-3 bg-primary/5 rounded-lg">
                     <div className="flex items-center space-x-2">
                       <CalendarDaysIcon className="w-4 h-4 text-primary" />
-                      <span className="text-sm text-primary font-medium">Monthly</span>
+                      <span className="text-sm text-primary font-medium">Monthly Contribution</span>
                     </div>
-                    <span className="font-bold text-primary">{parseFloat(goal.monthlyCost).toLocaleString()} ₸</span>
+                    <span className="font-bold text-primary">{parseFloat(goal.monthlyCost).toLocaleString()} &#8376;</span>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           )
         })}
@@ -1016,7 +1055,7 @@ const MainPage = () => {
               Add Money to "{selectedGoal.goal.title}"
             </h2>
             <div className="mb-4">
-              <label className="block text-dark font-medium mb-2">Amount (₸)</label>
+              <label className="block text-dark font-medium mb-2">Amount (&#8376;)</label>
               <input
                 type="number"
                 value={topupAmount}
@@ -1025,7 +1064,7 @@ const MainPage = () => {
                 placeholder="Enter amount to add"
               />
               <p className="text-sm text-gray mt-1">
-                Available balance: {accountBalance.toLocaleString()} ₸
+                Available balance: {accountBalance.toLocaleString()} &#8376;
               </p>
             </div>
             <div className="flex space-x-4">
@@ -1075,7 +1114,7 @@ const MainPage = () => {
               </div>
               <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                 <h3 className="text-lg font-semibold text-red-600 mb-1">Monthly Cost</h3>
-                <p className="text-2xl font-bold text-red-600">{getTotalHabitsCost().toLocaleString()} ₸</p>
+                <p className="text-2xl font-bold text-red-600">{getTotalHabitsCost().toLocaleString()} &#8376;</p>
               </div>
             </div>
 
@@ -1093,12 +1132,12 @@ const MainPage = () => {
                             <p className="text-sm text-gray">{habit.description}</p>
                           </div>
                           <div className="text-right">
-                            <p className="text-lg font-bold text-red-600">{habit.monthlyCost.toLocaleString()} ₸/month</p>
+                            <p className="text-lg font-bold text-red-600">{habit.monthlyCost.toLocaleString()} &#8376;/month</p>
                             <p className="text-sm text-gray">{habit.frequency}</p>
                           </div>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-sm text-gray">Annual impact: {(habit.monthlyCost * 12).toLocaleString()} ₸</span>
+                          <span className="text-sm text-gray">Annual impact: {(habit.monthlyCost * 12).toLocaleString()} &#8376;</span>
                         </div>
                         {habit.products && habit.products.length > 0 && (
                           <div className="mt-3">
@@ -1133,10 +1172,10 @@ const MainPage = () => {
                 </div>
               ) : (
                 <ul className="text-sm text-blue-700 space-y-1">
-                  <li>• Consider reducing coffee purchases by 50% to save {Math.round(getTotalHabitsCost() * 0.15).toLocaleString()} ₸/month</li>
-                  <li>• Use public transport more often to save {Math.round(getTotalHabitsCost() * 0.2).toLocaleString()} ₸/month</li>
-                  <li>• Cancel unused subscriptions to save {Math.round(getTotalHabitsCost() * 0.1).toLocaleString()} ₸/month</li>
-                  <li>• Cook at home more often to save {Math.round(getTotalHabitsCost() * 0.3).toLocaleString()} ₸/month</li>
+                  <li>• Consider reducing coffee purchases by 50% to save {Math.round(getTotalHabitsCost() * 0.15).toLocaleString()} &#8376;/month</li>
+                  <li>• Use public transport more often to save {Math.round(getTotalHabitsCost() * 0.2).toLocaleString()} &#8376;/month</li>
+                  <li>• Cancel unused subscriptions to save {Math.round(getTotalHabitsCost() * 0.1).toLocaleString()} &#8376;/month</li>
+                  <li>• Cook at home more often to save {Math.round(getTotalHabitsCost() * 0.3).toLocaleString()} &#8376;/month</li>
                 </ul>
               )}
             </div>

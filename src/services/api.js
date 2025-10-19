@@ -1,4 +1,5 @@
-const API_BASE_URL = 'https://zaman-back.vercel.app/api'
+// const API_BASE_URL = 'https://zaman-back.vercel.app/api'
+const API_BASE_URL = 'http://localhost:3000/api'
 
 // Функция для получения userId из localStorage
 const getUserId = () => {
