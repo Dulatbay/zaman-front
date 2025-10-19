@@ -1,5 +1,5 @@
 const ELEVENLABS_API_URL = 'https://api.elevenlabs.io/v1'
-const ELEVENLABS_API_KEY = 'sk_f38f08264a87cecc933f23dd3995618482cafa5b51366a20'
+const ELEVENLABS_API_KEY = 'sk_47a53865b82bb4d374abbb4295515d8d71558efee0d4bbed'
 
 // Доступные голоса ElevenLabs
 export const VOICES = {
@@ -156,7 +156,7 @@ export class ElevenLabsService {
   }
 
   // Синтезировать речь
-  async synthesizeSpeech(text, voiceId, settings = DEFAULT_VOICE_SETTINGS, speed = 1.0) {
+  async synthesizeSpeech(text, voiceId, settings = DEFAULT_VOICE_SETTINGS, speed = 0.6) {
     try {
       const response = await fetch(`${this.baseURL}/text-to-speech/${voiceId}`, {
         method: 'POST',

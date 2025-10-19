@@ -65,48 +65,66 @@ const ChatPage = () => {
 
   // Инициализация Speech Recognition
   const initializeSpeechRecognition = () => {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
-    recognitionRef.current = new SpeechRecognition()
-    
-    recognitionRef.current.continuous = false
-    recognitionRef.current.interimResults = false
-    recognitionRef.current.lang = 'ru-RU'
-    
-    recognitionRef.current.onstart = () => {
-      setIsListening(true)
-      setSpeechError('')
-    }
-    
-    recognitionRef.current.onresult = (event) => {
-      const transcript = event.results[0][0].transcript
-      setInputMessage(prev => prev + transcript)
-      setIsListening(false)
-    }
-    
-    recognitionRef.current.onerror = (event) => {
-      console.error('Speech recognition error:', event.error)
-      setIsListening(false)
+    try {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
       
-      switch (event.error) {
-        case 'no-speech':
-          setSpeechError('Не удалось распознать речь. Попробуйте еще раз.')
-          break
-        case 'audio-capture':
-          setSpeechError('Микрофон недоступен. Проверьте разрешения.')
-          break
-        case 'not-allowed':
-          setSpeechError('Доступ к микрофону запрещен. Разрешите использование микрофона.')
-          break
-        case 'network':
-          setSpeechError('Ошибка сети. Проверьте подключение к интернету.')
-          break
-        default:
-          setSpeechError('Ошибка распознавания речи. Попробуйте еще раз.')
+      if (!SpeechRecognition) {
+        console.error('Speech Recognition not supported')
+        setSpeechSupported(false)
+        return
       }
-    }
-    
-    recognitionRef.current.onend = () => {
-      setIsListening(false)
+      
+      recognitionRef.current = new SpeechRecognition()
+      
+      recognitionRef.current.continuous = false
+      recognitionRef.current.interimResults = false
+      recognitionRef.current.lang = 'ru-RU'
+      
+      recognitionRef.current.onstart = () => {
+        console.log('Speech recognition started')
+        setIsListening(true)
+        setSpeechError('')
+      }
+      
+      recognitionRef.current.onresult = (event) => {
+        console.log('Speech recognition result:', event.results)
+        const transcript = event.results[0][0].transcript
+        setInputMessage(prev => prev + transcript)
+        setIsListening(false)
+      }
+      
+      recognitionRef.current.onerror = (event) => {
+        console.error('Speech recognition error:', event.error)
+        setIsListening(false)
+        
+        switch (event.error) {
+          case 'no-speech':
+            setSpeechError('Не удалось распознать речь. Попробуйте еще раз.')
+            break
+          case 'audio-capture':
+            setSpeechError('Микрофон недоступен. Проверьте разрешения.')
+            break
+          case 'not-allowed':
+            setSpeechError('Доступ к микрофону запрещен. Разрешите использование микрофона.')
+            break
+          case 'network':
+            setSpeechError('Ошибка сети. Проверьте подключение к интернету.')
+            break
+          default:
+            setSpeechError('Ошибка распознавания речи. Попробуйте еще раз.')
+        }
+      }
+      
+      recognitionRef.current.onend = () => {
+        console.log('Speech recognition ended')
+        setIsListening(false)
+        setSpeechError('')
+      }
+      
+      console.log('Speech Recognition initialized successfully')
+    } catch (error) {
+      console.error('Error initializing Speech Recognition:', error)
+      setSpeechSupported(false)
     }
   }
 
@@ -141,6 +159,19 @@ const ChatPage = () => {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
+
+  // Глобальная клавиша Escape для остановки записи
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' && isListening) {
+        console.log('🚨 ESCAPE KEY PRESSED - FORCE STOP')
+        stopListening()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isListening])
 
   const generateAIResponse = (userMessage) => {
     const responses = [
@@ -213,14 +244,44 @@ const ChatPage = () => {
     setInputMessage('')
     if (recognitionRef.current && !isListening) {
       setSpeechError('')
-      recognitionRef.current.start()
+      try {
+        recognitionRef.current.start()
+      } catch (error) {
+        console.error('Error starting speech recognition:', error)
+        setSpeechError('Ошибка запуска распознавания речи')
+        setIsListening(false)
+      }
     }
   }
 
   const stopListening = () => {
-    if (recognitionRef.current && isListening) {
-      recognitionRef.current.stop()
+    console.log('🛑 STOP LISTENING CALLED')
+    console.log('Current state - isListening:', isListening)
+    console.log('recognitionRef exists:', !!recognitionRef.current)
+    
+    // НЕМЕДЛЕННО сбрасываем состояние
+    setIsListening(false)
+    setSpeechError('')
+    
+    // Принудительно останавливаем все процессы
+    if (recognitionRef.current) {
+      try {
+        console.log('🛑 Stopping recognition...')
+        recognitionRef.current.stop()
+        console.log('✅ Recognition stopped')
+      } catch (error) {
+        console.error('❌ Error stopping recognition:', error)
+      }
     }
+    
+    // Уничтожаем ссылку на recognition
+    recognitionRef.current = null
+    
+    // Принудительно пересоздаем recognition
+    setTimeout(() => {
+      console.log('🔄 Reinitializing speech recognition...')
+      initializeSpeechRecognition()
+    }, 200)
   }
 
   // Функции для text-to-speech
@@ -515,23 +576,44 @@ const ChatPage = () => {
             
             {/* Кнопка голосового ввода */}
             {speechSupported && (
-              <button
-                type="button"
-                onClick={isListening ? stopListening : startListening}
-                disabled={isTyping}
-                className={`px-4 py-3 rounded-xl font-bold transition-all duration-200 transform hover:scale-105 shadow-sm disabled:hover:scale-100 ${
-                  isListening
-                    ? 'bg-red-500 hover:bg-red-600 text-white'
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-600 disabled:bg-gray-50 disabled:text-gray-400'
-                }`}
-                title={isListening ? "Остановить запись" : "Начать голосовой ввод"}
-              >
-                {isListening ? (
-                  <StopIcon className="w-5 h-5" />
-                ) : (
-                  <MicrophoneIcon className="w-5 h-5" />
+              <div className="flex flex-col space-y-2">
+                <button
+                  type="button"
+                  onClick={isListening ? stopListening : startListening}
+                  disabled={isTyping}
+                  className={`px-4 py-3 rounded-xl font-bold transition-all duration-200 transform hover:scale-105 shadow-sm disabled:hover:scale-100 ${
+                    isListening
+                      ? 'bg-red-500 hover:bg-red-600 text-white animate-pulse'
+                      : 'bg-gray-100 hover:bg-gray-200 text-gray-600 disabled:bg-gray-50 disabled:text-gray-400'
+                  }`}
+                  title={isListening ? "Остановить запись" : "Начать голосовой ввод"}
+                >
+                  {isListening ? (
+                    <StopIcon className="w-5 h-5" />
+                  ) : (
+                    <MicrophoneIcon className="w-5 h-5" />
+                  )}
+                </button>
+                
+                {/* Кнопка принудительного сброса */}
+                {isListening && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      console.log('🚨 FORCE RESET BUTTON CLICKED')
+                      setIsListening(false)
+                      setSpeechError('')
+                      if (recognitionRef.current) {
+                        recognitionRef.current = null
+                      }
+                    }}
+                    className="px-2 py-1 text-xs bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+                    title="Принудительно остановить"
+                  >
+                    Сброс
+                  </button>
                 )}
-              </button>
+              </div>
             )}
             
             {/* Кнопка отправки */}
@@ -548,9 +630,9 @@ const ChatPage = () => {
           <div className="mt-4 flex flex-wrap gap-2">
             {[
               "Составь отчет на этот месяц",
-              "Хочу накопить что-то",
-              "Какие привычки мне можно исправить",
-              "Расскажи про продукты ZamanBank"
+              "Хочу накопить на что-то",
+              "Оплати текущий ежемесячный платеж",
+              "Дай рекомендацию по моим финансовым целям"
             ].map((question) => (
               <button
                 key={question}
