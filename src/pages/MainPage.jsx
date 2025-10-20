@@ -41,8 +41,8 @@ const MainPage = () => {
   // Обязательные платежи
   const [mandatoryPayments, setMandatoryPayments] = useState([])
   const [paymentFormData, setPaymentFormData] = useState({
-    name: '',
-    cost: '',
+    payment_name: '',
+    payment_cost: '',
     payment_day: '',
     paid: false
   })
@@ -248,8 +248,8 @@ const MainPage = () => {
       }
       
       setPaymentFormData({
-        name: '',
-        cost: '',
+        payment_name: '',
+        payment_cost: '',
         payment_day: '',
         paid: false
       })
@@ -588,7 +588,7 @@ const MainPage = () => {
                 }`}>
                   <div className="flex-1">
                     <div className="flex items-center space-x-2 mb-1">
-                      <h4 className="font-semibold text-dark">{payment.name}</h4>
+                      <h4 className="font-semibold text-dark">{payment.payment_name}</h4>
                       {payment.paid && (
                         <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">
                           Paid
@@ -596,7 +596,7 @@ const MainPage = () => {
                       )}
                     </div>
                     <p className="text-sm text-gray-600">
-                      Cost: {payment.cost} KZT | Day: {payment.payment_day}
+                      Cost: {payment.payment_cost} KZT | Day: {payment.payment_day}
                     </p>
                   </div>
                   <div className="flex space-x-2">
@@ -1202,8 +1202,8 @@ const MainPage = () => {
                 <label className="block text-sm font-medium text-dark mb-2">Payment Name</label>
                 <input
                   type="text"
-                  value={paymentFormData.name}
-                  onChange={(e) => setPaymentFormData({...paymentFormData, name: e.target.value})}
+                  value={paymentFormData.payment_name}
+                  onChange={(e) => setPaymentFormData({...paymentFormData, payment_name: e.target.value})}
                   className="w-full px-3 py-2 border border-light rounded-lg"
                   placeholder="e.g., Rent, Utilities, Insurance"
                   required
@@ -1214,8 +1214,8 @@ const MainPage = () => {
                 <label className="block text-sm font-medium text-dark mb-2">Cost (KZT)</label>
                 <input
                   type="number"
-                  value={paymentFormData.cost}
-                  onChange={(e) => setPaymentFormData({...paymentFormData, cost: e.target.value})}
+                  value={paymentFormData.payment_cost}
+                  onChange={(e) => setPaymentFormData({...paymentFormData, payment_cost: e.target.value})}
                   className="w-full px-3 py-2 border border-light rounded-lg"
                   placeholder="15000"
                   min="0"
@@ -1264,7 +1264,7 @@ const MainPage = () => {
                   onClick={() => {
                     setShowPaymentModal(false)
                     setEditingPayment(null)
-                    setPaymentFormData({name: '', cost: '', payment_day: '', paid: false})
+                    setPaymentFormData({payment_name: '', payment_cost: '', payment_day: '', paid: false})
                   }}
                   className="flex-1 bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg"
                 >
@@ -1312,10 +1312,10 @@ const MainPage = () => {
                     </div>
                     <div className="ml-3 flex-1">
                       <p className="text-sm font-medium text-gray-900">
-                        {payment.name}
+                        {payment.payment_name}
                       </p>
                       <p className="text-sm text-gray-600">
-                        {payment.cost} KZT
+                        {payment.payment_cost} KZT
                       </p>
                       <p className={`text-xs ${
                         isOverdue ? 'text-red-600' : 

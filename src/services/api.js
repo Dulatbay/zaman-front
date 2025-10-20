@@ -277,8 +277,8 @@ export const paymentsAPI = {
       },
       body: JSON.stringify({
         user_id: getUserId(),
-        name: paymentData.name,
-        cost: parseFloat(paymentData.cost),
+        payment_name: paymentData.payment_name,
+        payment_cost: parseFloat(paymentData.payment_cost),
         payment_day: parseInt(paymentData.payment_day)
       })
     })
@@ -309,8 +309,8 @@ export const paymentsAPI = {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: paymentData.name,
-        cost: parseFloat(paymentData.cost),
+        payment_name: paymentData.payment_name,
+        payment_cost: parseFloat(paymentData.payment_cost),
         payment_day: parseInt(paymentData.payment_day)
       })
     })
